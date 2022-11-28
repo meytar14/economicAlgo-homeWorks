@@ -21,10 +21,12 @@ def isCircleInGraph(matrix):
                         numOfEdgesFromEachObject[i]-=1
                         numOfNodes-=1 #delte the node of the object
                         numOfEdgesFromEachPlayer[j]-=1 #deleting the edge from the player
+                        break
                     elif matrix[j][i]>0 and numOfEdgesFromEachPlayer[j]>1:
                         numOfNodes -= 1 #delte only the node of the object because the node of the player still conected to other objects
                         numOfEdgesFromEachPlayer[j] -= 1
                         numOfEdgesFromEachObject[i] -= 1
+                        break
         for p in range(players): #deleting all the nodes of the players that left with 0 edges (which means they are unconected)
             if numOfEdgesFromEachPlayer[p]==0:
                 numOfNodes-=1
@@ -58,3 +60,4 @@ if isCircleInGraph(g4)==True:
     rightAnswers+=1
 print("right answers: " +str(rightAnswers))
 print("wrong answers: "+str(4-rightAnswers))
+

@@ -2,6 +2,17 @@
 import numpy as np
 
 def isCircleInGraph(matrix):
+        """
+        tests:
+        >>> isCircleInGraph([[1,1,0.07,0],[0,0,0.93,1]])
+        False
+        >>> isCircleInGraph([[1,0.4,0,0],[1,0.6,0,0],[0,0,0,0]])
+        True
+        >>> isCircleInGraph([[1,0.2,0,0],[0,0.8,1,0],[0,0,0,0]])
+        False
+        >>> isCircleInGraph([[1,0.5,0.5,0],[0,0.5,0.2,0],[0,0,0.3,0]])
+        True
+        """
         players=len(matrix)
         objects=len(matrix[0])
         numOfEdgesFromEachObject = np.zeros(objects)
@@ -43,7 +54,8 @@ def isCircleInGraph(matrix):
 
 
 
-
+import doctest
+doctest.testmod()
 #tests
 rightAnswers=0
 g1=[[1,1,0.07,0],[0,0,0.93,1]] # there isnt a circle in the graph

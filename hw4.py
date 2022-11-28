@@ -1,7 +1,7 @@
 #hw4 Meytar Gil-Ron 322876046
 def allVectors(objects): #returning all the possible combinations of partition objects
     vectors=[[0,0]]
-    print(vectors)
+    #print(vectors)
     counter=0
     for object in objects:
         counter=counter+1
@@ -13,12 +13,12 @@ def allVectors(objects): #returning all the possible combinations of partition o
                 newVectors.append(newV)
         vectors=newVectors
 
-        print("division of object number: "+str(counter)+" (num of states:"+str(len(vectors))+")   "+str(vectors))
+        #print("division of object number: "+str(counter)+" (num of states:"+str(len(vectors))+") states:  "+str(vectors))
     return vectors
 
 def allVectorsWithPruning(objects):
     vectors=[[0,0]]
-    print(vectors)
+    #print(vectors)
     counter=0
     for object in objects:
         counter=counter+1
@@ -36,7 +36,7 @@ def allVectorsWithPruning(objects):
                     newVectors.append(newV)
         vectors=newVectors
 
-        print("division of object number: "+str(counter)+" (num of states:"+str(len(vectors))+")   "+str(vectors))
+        #print("division of object number: "+str(counter)+" (num of states:"+str(len(vectors))+") states:  "+str(vectors))
     return vectors
 
 def findEgaliterian(vectors): #take all the vector and return the egaliterian vector
@@ -52,16 +52,34 @@ def findEgaliterian(vectors): #take all the vector and return the egaliterian ve
 
 
 def egaliterian(objects):
+    """
+    >>> egaliterian([1,2,3,3,2,8,5,3])
+    [14, 13]
+    >>> egaliterian([1, 12, 6, 15, 2, 8, 9, 3])
+    [28, 28]
+    >>> egaliterian([2,2,0,2,2,2])
+    [6, 4]
+    """
     vectors=allVectors(objects)
     v=findEgaliterian(vectors)
     return v
 
 def egaliterianWithPruning(objects):
+    """
+       >>> egaliterian([1,2,3,3,2,8,5,3])
+       [14, 13]
+       >>> egaliterian([1, 12, 6, 15, 2, 8, 9, 3])
+       [28, 28]
+       >>> egaliterian([2,2,0,2,2,2])
+       [6, 4]
+       """
     vectors=allVectorsWithPruning(objects)
     v=findEgaliterian(vectors)
     return v
 
 if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
 
     objects=[1,2,3,3,2,8,5,3]
     print("objects"+str(objects))

@@ -1,5 +1,5 @@
 #hw4 Meytar Gil-Ron 322876046
-def allVectors(objects):
+def allVectors(objects): #returning all the possible combinations of partition objects
     vectors=[[0,0]]
     print(vectors)
     counter=0
@@ -39,7 +39,7 @@ def allVectorsWithPruning(objects):
         print("division of object number: "+str(counter)+" (num of states:"+str(len(vectors))+")   "+str(vectors))
     return vectors
 
-def findEgaliterian(vectors):
+def findEgaliterian(vectors): #take all the vector and return the egaliterian vector
     mins=[]
     for v in vectors:
         mins.append(min(v))
@@ -64,11 +64,20 @@ def egaliterianWithPruning(objects):
 if __name__ == '__main__':
 
     objects=[1,2,3,3,2,8,5,3]
+    print("objects"+str(objects))
     print("without pruning:")
-    print(egaliterian(objects))
+    print("the egaliterian vector: "+str(egaliterian(objects)))
     print()
     print("with pruning:")
-    print(egaliterianWithPruning(objects))
+    print("the egaliterian vector: "+str(egaliterianWithPruning(objects)))
+    print("\n\n\n")
+    objects2 = [1, 12, 6, 15, 2, 8, 9, 3]
+    print("objects"+str(objects2))
+    print("without pruning:")
+    print("the egaliterian vector: " + str(egaliterian(objects2)))
+    print()
+    print("with pruning:")
+    print("the egaliterian vector: " + str(egaliterianWithPruning(objects2)))
 
 
 

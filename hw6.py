@@ -34,6 +34,30 @@ def find_circle_in_consumption_graph(allocation: list[list[float]]):
     return cycle
 
 # run tests
-doctest.testmod()
+#doctest.testmod()
+def options( avaiable):
+    if len(avaiable)==0:
+        print(avaiable)
+    for i in avaiable:
+        options(avaiable.remove(i))
 
 
+
+def g(avaible,l,options:list):
+    if len(avaible)==0:
+        options.append(l)
+        #print(l)
+    else:
+        for i in avaible:
+            avaibleCopy=avaible.copy()
+            lCopy=l.copy()
+            avaibleCopy.remove(i)
+            lCopy.append(i)
+            g(avaibleCopy,lCopy,options)
+
+arr=[1,2,3,4,5]
+l=[]
+opt=[]
+g(arr,l,opt)
+print(opt)
+print(len(opt))

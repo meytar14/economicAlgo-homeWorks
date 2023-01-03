@@ -53,9 +53,6 @@ def utulitary_with_condition(total:float,subjects:list,preferences:list):
             if preferences_of_p[i]==maximum:
                 d[i] = d[i] + money_for_each_player/c1
                 str_p=str_p+str(money_for_each_player/c1)+" to " + subjects[i]
-                #print("citezen " + str(c) + " gives " + str(money_for_each_player) + " to " + subjects[idx])
-        # idx=find_max(preferences_of_p)
-        # d[idx]=d[idx]+money_for_each_player
         print(str_p)
         c=c+1
         str_d="d= ["

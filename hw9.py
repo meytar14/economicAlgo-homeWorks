@@ -16,9 +16,10 @@ def utulitary_with_condition(total:float,subjects:list,preferences:list):
     citezen 0 gives 100.0 to a
     citezen 1 gives 100.0 to a
     citezen 2 gives 100.0 to a
-    citezen 3 gives 100.0 to b
+    citezen 3 gives 50.0 to b50.0 to c
     citezen 4 gives 100.0 to a
-    d= [a=400.0 b=100.0 c=0.0 d=0.0 ]
+    d= [a=400.0 b=50.0 c=50.0 d=0.0 ]
+
     >>> utulitary_with_condition(160,["a","b","c","d"],[["a"],["c"],["b"],["d"]])
     citezen 0 gives 40.0 to a
     citezen 1 gives 40.0 to c
@@ -42,10 +43,20 @@ def utulitary_with_condition(total:float,subjects:list,preferences:list):
         preferences_of_p=np.zeros(len(subjects))
         for subject in p:
             preferences_of_p[subjects.index(subject)]=num_of_votes_for_each_subject[subjects.index(subject)]
-
-        idx=find_max(preferences_of_p)
-        d[idx]=d[idx]+money_for_each_player
-        print("citezen "+str(c)+" gives "+str(money_for_each_player)+" to "+subjects[idx])
+        c1=0
+        maximum=max(preferences_of_p)
+        for p in preferences_of_p:
+            if p==maximum:
+                c1=c1+1
+        str_p="citezen " + str(c) + " gives "
+        for i in range(len(preferences_of_p)):
+            if preferences_of_p[i]==maximum:
+                d[i] = d[i] + money_for_each_player/c1
+                str_p=str_p+str(money_for_each_player/c1)+" to " + subjects[i]
+                #print("citezen " + str(c) + " gives " + str(money_for_each_player) + " to " + subjects[idx])
+        # idx=find_max(preferences_of_p)
+        # d[idx]=d[idx]+money_for_each_player
+        print(str_p)
         c=c+1
         str_d="d= ["
         for i in range(len(subjects)):
